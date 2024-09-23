@@ -39,7 +39,11 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: "https://your-netlify-url.netlify.app", // Replace with your actual Netlify URL
+  credentials: true // If you're using cookies or authentication
+}));
 
 // mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/react?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true });
 // mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/react?retryWrites=true&w=majority&appName=Cluster0', {
