@@ -42,9 +42,18 @@ app.use(express.json());
 app.use(cors());
 
 // mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/react?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true });
-mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/react?retryWrites=true&w=majority&appName=Cluster0', {
-  useNewUrlParser: true,
-});
+// mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/react?retryWrites=true&w=majority&appName=Cluster0', {
+//   useNewUrlParser: true,
+// });
+// Remove useNewUrlParser and useUnifiedTopology
+mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/react?retryWrites=true&w=majority&appName=Cluster0')
+  .then(() => {
+    console.log("Connected to MongoDB successfully");
+  })
+  .catch(err => {
+    console.error("Failed to connect to MongoDB:", err);
+  });
+
 
 // Login Route
 app.post("/login", (req, res) => {
