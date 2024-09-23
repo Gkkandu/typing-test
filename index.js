@@ -89,7 +89,8 @@ app.post("/login", (req, res) => {
 
 app.post('/register', (req, res) => {
     const { username, email, password } = req.body;
-  
+  console.log("Request received with:", req.body);  // Add this log to check request payload
+
     // Check if user already exists
     EmployeeModel.findOne({ email })
       .then(existingUser => {
