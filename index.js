@@ -100,20 +100,47 @@ app.post("/login", (req, res) => {
 });
 
 
-app.post('/register', (req, res) => {
-    const { username, email, password } = req.body;
-  console.log("Request received with:", req.body);  // Add this log to check request payload
+// app.post('/register', (req, res) => {
+//     const { username, email, password } = req.body;
+//   console.log("Request received with:", req.body);  // Add this log to check request payload
 
-    // Check if user already exists
+//     // Check if user already exists
+//     EmployeeModel.findOne({ email })
+//       .then(existingUser => {
+//         if (existingUser) {
+//           return res.json({ status: 'Error', message: 'User already exists' });
+//         }
+  
+//         // Create new user
+//         EmployeeModel.create({ username, email, password })
+//           .then(user => res.json({ status: 'Success', user }))
+//           .catch(err => {
+//             console.error('Error creating user:', err);
+//             res.status(500).json({ status: 'Error', message: 'Error creating user' });
+//           });
+//       })
+//       .catch(err => {
+//         console.error('Error checking user existence:', err);
+//         res.status(500).json({ status: 'Error', message: 'Error checking user existence' });
+//       });
+//   });
+
+app.post('/register', (req, res) => {
+    console.log("Received request data:", req.body);  // Log incoming request data
+
+    const { username, email, password } = req.body;
+
     EmployeeModel.findOne({ email })
       .then(existingUser => {
         if (existingUser) {
           return res.json({ status: 'Error', message: 'User already exists' });
         }
-  
-        // Create new user
+
         EmployeeModel.create({ username, email, password })
-          .then(user => res.json({ status: 'Success', user }))
+          .then(user => {
+            console.log("User created successfully:", user);  // Log created user
+            res.json({ status: 'Success', user });
+          })
           .catch(err => {
             console.error('Error creating user:', err);
             res.status(500).json({ status: 'Error', message: 'Error creating user' });
@@ -123,7 +150,8 @@ app.post('/register', (req, res) => {
         console.error('Error checking user existence:', err);
         res.status(500).json({ status: 'Error', message: 'Error checking user existence' });
       });
-  });
+});
+
 app.get('/users', (req, res) => {
     EmployeeModel.find()
       .then(users => res.json(users))
