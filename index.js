@@ -128,8 +128,9 @@ app.post("/login", (req, res) => {
 // app.post('/register', (req, res) => {
 //     console.log("Received request data:", req.body);  // Log incoming request data
 app.post('/register', (req, res) => {
-  console.log("Request from mobile:", req.body);  // Add log to check if request is received
+  res.json({ status: 'Success', message: 'Mobile test successful' });
 });
+
 
     const { username, email, password } = req.body;
 
