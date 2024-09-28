@@ -191,10 +191,14 @@ const app = express();
 app.use(express.json());
 
 // Configure CORS to allow your Netlify frontend to make requests
+const cors = require('cors');
+
 app.use(cors({
-  origin: "https://all-exam-rrb-ntpc-typing-test.netlify.app", // Replace with your actual Netlify URL
-  credentials: true
+  origin: ['https://66f7ba9a140dec8e399bcd3e--visionary-rabanadas-5aa72e.netlify.app', 'https://all-exam-rrb-ntpc-typing-test.netlify.app'],
+  methods: ['GET', 'POST'], // List allowed methods
+  credentials: true, // Allow credentials like cookies if needed
 }));
+
 
 // Connect to MongoDB on Render.com
 mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/angular?retryWrites=true&w=majority&appName=Cluster0')
