@@ -41,7 +41,7 @@
 // app.use(express.json());
 // app.use(cors());
 // app.use(cors({
-//   origin: "https://all-exam-rrb-ntpc-typing-test.netlify.app/", // Replace with your actual Netlify URL
+//   origin: "https://all-exam-rrb-ntpc-typing-test.netlify.app", // Replace with your actual Netlify URL
 //   credentials: true // If you're using cookies or authentication
 // }));
 
