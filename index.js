@@ -50,7 +50,7 @@ app.use(cors({
 //   useNewUrlParser: true,
 // });
 // Remove useNewUrlParser and useUnifiedTopology
-mongoose.connect('mongodb+srv://gk2401401:Neeraj@7054cluster0.4vkgn.mongodb.net/angular?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb+srv://gk24014:Neeraj@cluster0.4vkgn.mongodb.net/angular?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => {
     console.log("Connected to MongoDB successfully");
   })
